@@ -18,6 +18,14 @@ from sqlmodel import Session
 # Create a FastAPI application instance
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins (You can replace with specific origins)
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all HTTP methods
+    allow_headers=["*"],  # Allow all headers
+)
+
 
 # Startup event handler - executes when the application starts
 @app.on_event("startup")

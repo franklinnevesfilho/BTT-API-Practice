@@ -20,7 +20,6 @@ mysql_name = "test_db"
 # Construct MySQL connection URL using PyMySQL driver
 # Format: mysql+pymysql://username:password@host:port/database_name
 mysql_url = f"mysql+pymysql://root:password@localhost:3306/{mysql_name}"
-
 # Create database engine using the connection URL
 # This establishes a connection pool to the database
 engine = create_engine(mysql_url)
