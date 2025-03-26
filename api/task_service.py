@@ -1,12 +1,6 @@
 from fastapi import APIRouter  # Imports APIRouter from FastAPI (not used in this file)
 from task_model import Task  # Imports the Task model
 
-# Creates a list with two empty Task objects
-tasks = [
-    Task(),
-    Task()
-]
-
 # Function to get all tasks
 def get_all_tasks():
     return tasks

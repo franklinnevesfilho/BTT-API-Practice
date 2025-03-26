@@ -14,6 +14,8 @@ from db_task_service import *  # Importing all database service functions
 # Import Session class from sqlmodel for type hinting
 from sqlmodel import Session
 
+from user_router import my_router
+
 
 # Create a FastAPI application instance
 app = FastAPI()
@@ -25,6 +27,7 @@ app.add_middleware(
     allow_methods=["*"],  # Allow all HTTP methods
     allow_headers=["*"],  # Allow all headers
 )
+
 
 
 # Startup event handler - executes when the application starts
@@ -77,3 +80,5 @@ def get(task_id: int, session: Session = Depends(get_session)):
     # Get task_id from path parameter
     # Inject database session and call get_task service function
     return get_task(task_id, session)
+
+app.include_router(my_router)
